@@ -8,10 +8,9 @@ export default class AdsApiCdkStack extends sst.Stack {
   constructor(app: sst.App, id: string) {
     super(app, id);
 
-    const dynamoTable = new dynamodb.Table(this, 'ads_sst', {
+    const dynamoTable = new dynamodb.Table(this, "Table", {
       partitionKey: { name: 'aid', type: dynamodb.AttributeType.STRING },
       sortKey: { name: 'added', type: dynamodb.AttributeType.NUMBER },
-      tableName: 'ads_sst',
       billingMode: dynamodb.BillingMode.PAY_PER_REQUEST,
 
       // The default removal policy is RETAIN, which means that cdk destroy will not attempt to delete
